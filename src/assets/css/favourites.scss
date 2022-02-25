@@ -1,0 +1,143 @@
+.favourites-container {
+    z-index: 1;
+    position: relative;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    // border:1px solid blue;
+    // background-color: green;
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+
+    .favourites-icon{
+        // background-color: blue;
+        width: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+
+        .favourites-icon__add{
+            // background-color: red;
+            width: 25%;
+            color:white;
+            font-size: 2.5em;
+            cursor: pointer;
+            transition: .5s;
+            
+            &:hover{
+                transform: scale(1.25);
+            }
+        }
+
+        .favourites-icon__list{
+            text-align: end;
+            width: 75%;
+            // background-color: red;
+            color:white;
+            font-size: 1.5em;
+            cursor: pointer;
+
+            &:hover{
+                color: rgba(255, 255, 255, 0.5);
+            }
+
+            .arrow-icon{
+                transition:  .5s;
+            }
+            .arrow-icon.active{
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    .favourites-list{
+        position: relative;
+        display: flex;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        flex-direction: column-reverse;
+        // background-color: yellow;
+        width: 100%;    
+        height: 0;
+        transition: height .5s;
+
+        .favourite-list__container{
+            display: flex;
+            width: 100%;
+            // background-color: red;
+            color:white;
+            height: auto;
+            
+            padding: 0 0.25em;
+
+            .favourite-list__name{
+                width: 100%;
+                // background-color: green;
+                font-size: .9em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .favourite-list__delete-icon{
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                // background-color: blue;
+                height: 100%;
+                background: none;
+                box-shadow: none;
+                border: none;
+                color:white;
+                font-size: 1.25em;
+            }
+        }
+    }
+
+    .favourites-list.active{
+        position: relative;
+        display: flex;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        flex-direction: column-reverse;
+        // background-color: blue;
+        width: 100%;
+        height: 50%;
+        max-height: 80%;
+        transition: height .5s;
+
+        .favourite-list__container{
+            display: flex;
+            width: 100%;
+            // background-color: red;
+            color:white;
+            height: auto;
+            
+            padding: 0 0.25em;
+
+            .favourite-list__name{
+                width: 100%;
+                // background-color: green;
+                font-size: .9em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .favourite-list__delete-icon{
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                // background-color: blue;
+                height: 100%;
+                background: none;
+                box-shadow: none;
+                border: none;
+                color:white;
+                font-size: 1.25em;
+            }
+        }
+    }
+}
