@@ -16,7 +16,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2.5%;
+  gap: 1%;
 }
 
 @media screen and (max-width: 800px) {
@@ -59,18 +59,12 @@
 .weather__current-container .favourites {
   position: absolute;
   bottom: 20%;
-  right: 0;
+  right: 5%;
   width: 30%;
   height: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-@media screen and (max-width: 800px) {
-  .weather__current-container .favourites {
-    right: 5%;
-  }
 }
 
 .weather__current-container .weather__current-location-container {
@@ -326,4 +320,17 @@
     color: #d30202;
     transition: .5s;
   }
+}
+
+.loader-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #161623;
+}
+
+.loader-container .loader-sentry {
+  color: white;
 }

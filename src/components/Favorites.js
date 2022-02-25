@@ -78,7 +78,9 @@ class Favourites extends Component {
                     {this.props.cities.cities.map((city, index) => {
                         return (
                         <div key={index} className="favourite-list__container">
-                            <p className="favourite-list__name">{city}</p>
+                            <p className="favourite-list__name">
+                                <button onClick={(e) => this.props.setCitySearch(e.target.textContent)}>{city}</button>
+                            </p>
                             <button onClick={() => {
                                 this.setState({ isFavourite: false });
                                 this.removeCityReducer(index);

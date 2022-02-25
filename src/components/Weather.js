@@ -4,6 +4,8 @@ import getWeather from "../services/getWeather";
 import { BiMap } from "react-icons/bi";
 import { GiWindsock } from "react-icons/gi";
 import { GiDrop } from "react-icons/gi";
+import Sentry from "react-activity/dist/Sentry";
+import "react-activity/dist/Sentry.css";
 
 import Search from './Search';
 import Favourites from './Favorites';
@@ -26,15 +28,23 @@ function Weather (){
             }
 
         if(citySearch){
-            const newWeather = await getWeather.getWeatherByName(citySearch); 
-            setCurrentWeather(newWeather);
-            setForecastWeather(await getWeather.getForecastWeather(newWeather.position.lat, newWeather.position.long));
+            try{
+                const newWeather = await getWeather.getWeatherByName(citySearch); 
+                setCurrentWeather(newWeather);
+                setForecastWeather(await getWeather.getForecastWeather(newWeather.position.lat, newWeather.position.long));
+            }
+            catch (e)
+            {
+                setCurrentWeather(currentWeather);
+            }
+            
         }
         
     }, [citySearch]);
 
     return(
-        <div className="container">
+        <>{currentWeather ? 
+            <div className="container">
             <div className='search-bar'>
                 <Search setCitySearch={setCitySearch}/>
             </div>
@@ -42,7 +52,7 @@ function Weather (){
                 <div className="weather__current-container">
                     <div className='favourites'>
                         {currentWeather?.city ? 
-                            <Favourites city={currentWeather.city} /> 
+                            <Favourites city={currentWeather.city} setCitySearch={setCitySearch} /> 
                             : <></>
                         }
                     </div>
@@ -82,6 +92,12 @@ function Weather (){
                 </div>
             </div>
         </div>
+        : 
+        <div className='loader-container'>
+            <Sentry size={50} className='loader-sentry'/>
+        </div>
+        }
+        </>
     )
 }
 

@@ -25,7 +25,11 @@ export default function Search ({setCitySearch}){
     return (
         <div className="search-container">
             <div className='search-input'>
-                <input type="text" value={searchTerm} onChange={editSearchTerm} placeholder={"Search ..."}/>
+                <input type="text" onKeyUp={(e) => {
+                    if(e.key === 'Enter'){
+                        setCitySearch(searchTerm);
+                    }
+                }} value={searchTerm} onChange={editSearchTerm} placeholder={"Search ..."}/>
                 <BsSearch className='search-icon'/>
             </div>
             <div className='search-result'>
