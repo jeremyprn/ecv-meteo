@@ -26,6 +26,11 @@
   }
 }
 
+.search-bar {
+  height: auto;
+  width: 50%;
+}
+
 @media screen and (max-width: 800px) {
   .container {
     height: auto;
@@ -79,6 +84,14 @@
 
 .weather__current-container .weather__current-location-container p {
   font-weight: 600;
+}
+
+@media screen and (max-width: 800px) {
+  .weather__current-container .weather__current-location-container p {
+    font-size: 1em;
+    width: 80%;
+    text-align: center;
+  }
 }
 
 .weather__current-container .weather__current-weather {
