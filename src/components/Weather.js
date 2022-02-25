@@ -62,7 +62,15 @@ function Weather (){
                         <p>{currentWeather?.city}</p>
                     </h2>
                     <div className="weather__current-icon">
+                        {currentWeather?.city == 'Kyiv' ||
+                         currentWeather?.city == 'kyiv' ||
+                         currentWeather?.city == 'Moscow' ||
+                         currentWeather?.city == 'moscow' ?
+                        <img src={`./assets/icons/02dp.png`}/> 
+                        :
                         <img src={`./assets/icons/${currentWeather?.icon}.png`}/> 
+                        }
+                        
                     </div>
                     <p className="weather__current-weather">{currentWeather?.weather}</p>
                     <p className="weather__current-temperature">{currentWeather?.temperature}<small>°</small></p>
