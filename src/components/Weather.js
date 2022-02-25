@@ -17,12 +17,13 @@ function Weather (){
 
     useEffect(async () => {
        
-        if ("geolocation" in navigator) {
-            navigator.geolocation.watchPosition(async function(position){
-                setCurrentWeather(await getWeather.getCurrentWeather(position.coords.latitude, position.coords.longitude));
-                setForecastWeather(await getWeather.getForecastWeather(position.coords.latitude, position.coords.longitude));
-            });
-        }
+        if(citySearch == '')
+            if ("geolocation" in navigator) {
+                navigator.geolocation.watchPosition(async function(position){
+                    setCurrentWeather(await getWeather.getCurrentWeather(position.coords.latitude, position.coords.longitude));
+                    setForecastWeather(await getWeather.getForecastWeather(position.coords.latitude, position.coords.longitude));
+                });
+            }
 
         if(citySearch){
             const newWeather = await getWeather.getWeatherByName(citySearch); 
