@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import weatherReducer from './reducers/weatherReducer'
+import citiesReducer from './reducers/citiesReducer'
 
 export default configureStore({
     reducer: {
-        weather: weatherReducer
+        cities: citiesReducer
     }
 })
